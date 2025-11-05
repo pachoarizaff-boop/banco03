@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Soporte - BancoSecure</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbancosecur8154back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="currentColor"/>
+                        <path d="M12 16h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                        <circle cx="20" cy="12" r="3" fill="white"/>
+                    </svg>
+                    <span class="ml-3 text-2xl font-bold text-primary">BancoSecure</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="secure_login_portal.html" class="text-text-secondary hover:text-primary transition-quick">Iniciar Sesión</a>
+                    <a href="support_portal.html" class="text-primary font-semibold border-b-2 border-primary pb-1">Soporte</a>
+                   
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-quick">
+                    <svg class="h-6 w-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-primary-50 to-secondary-50 py-16">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23E2E8F0" fill-opacity="0.3"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold text-primary mb-4">Centro de Soporte</h1>
+                    <p class="text-xl text-text-secondary mb-8 max-w-3xl mx-auto">
+                        Estamos aquí para ayudarte. Encuentra respuestas rápidas, conecta con nuestros expertos o explora nuestros recursos educativos.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="max-w-2xl mx-auto">
+                        <div class="relative">
+                            <input type="text" 
+                                   placeholder="¿En qué podemos ayudarte? Busca por tema, producto o pregunta..."
+                                   class="input-field pl-12 pr-16 text-lg h-14 w-full"
+                                   id="supportSearch">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                            <button class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                                <span class="btn-primary px-6 py-2 text-sm">Buscar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Help Options -->
+        <section class="py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-primary text-center mb-8">¿Cómo prefieres recibir ayuda?</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Live Chat -->
+                    <div class="card hover:shadow-elevated transition-all duration-300 cursor-pointer" onclick="openLiveChat()">
+                        <div class="text-center">
+                            <div class="h-16 w-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary mb-2">Chat en Vivo</h3>
+                            <p class="text-text-secondary text-sm mb-4">Habla con un especialista ahora</p>
+                            <div class="flex items-center justify-center space-x-2">
+                                <div class="h-2 w-2 bg-accent rounded-full animate-pulse"></div>
+                                <span class="text-xs text-accent font-medium">12 agentes disponibles</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phone Support -->
+                    <div class="card hover:shadow-elevated transition-all duration-300 cursor-pointer" onclick="scheduleCallback()">
+                        <div class="text-center">
+                            <div class="h-16 w-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary mb-2">Llamada Programada</h3>
+                            <p class="text-text-secondary text-sm mb-4">Te llamamos cuando te convenga</p>
+                            <span class="text-xs text-primary font-medium">Disponible 24/7</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Tutorial -->
+                    <div class="card hover:shadow-elevated transition-all duration-300 cursor-pointer" onclick="openVideoTutorials()">
+                        <div class="text-center">
+                            <div class="h-16 w-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10V9a2 2 0 012-2h2a2 2 0 012 2v1M9 10v5a2 2 0 002 2h2a2 2 0 002-2v-5"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary mb-2">Video Tutoriales</h3>
+                            <p class="text-text-secondary text-sm mb-4">Aprende paso a paso</p>
+                            <span class="text-xs text-secondary font-medium">50+ tutoriales</span>
+                        </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="card hover:shadow-elevated transition-all duration-300 cursor-pointer" onclick="openFAQ()">
+                        <div class="text-center">
+                            <div class="h-16 w-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="h-8 w-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary mb-2">Preguntas Frecuentes</h3>
+                            <p class="text-text-secondary text-sm mb-4">Respuestas instantáneas</p>
+                            <span class="text-xs text-warning font-medium">200+ preguntas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Topics -->
+        <section class="py-12 bg-surface">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-2xl font-bold text-primary mb-8">Temas Más Consultados</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Account Management -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1724833256490-3a309b68faef" 
+                                 alt="Gestión de cuentas bancarias digitales" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Gestión de Cuentas</h3>
+                                <p class="text-text-secondary text-sm mb-3">Consultas sobre saldos, movimientos y configuración de cuentas</p>
+                                <a href="account_management.html" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Services -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1554386690-cc2d52c7f3d6" 
+                                 alt="Servicios de tarjetas de crédito y débito" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Tarjetas</h3>
+                                <p class="text-text-secondary text-sm mb-3">Activación, bloqueo, límites y problemas con tarjetas</p>
+                                <a href="card_center.html" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transfers -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1716415529218-3b88cf1ae3a2" 
+                                 alt="Transferencias bancarias y pagos digitales" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Transferencias</h3>
+                                <p class="text-text-secondary text-sm mb-3">Envío de dinero, pagos y transferencias internacionales</p>
+                                <a href="transfer_hub.html" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1659389545430-778342901fc2" 
+                                 alt="Seguridad bancaria y protección de datos" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Seguridad</h3>
+                                <p class="text-text-secondary text-sm mb-3">Contraseñas, autenticación y protección de cuenta</p>
+                                <a href="javascript:void(0)" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile App -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1649486116188-b464d7f864a9" 
+                                 alt="Aplicación móvil de banca digital" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">App Móvil</h3>
+                                <p class="text-text-secondary text-sm mb-3">Instalación, configuración y uso de la aplicación</p>
+                                <a href="javascript:void(0)" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Issues -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1b6bbcc0d-1762275117100.png" 
+                                 alt="Soporte técnico para problemas digitales" 
+                                 class="h-16 w-16 rounded-lg object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <div class="flex-1">
+                                <h3 class="text-lg font-semibold text-primary mb-2">Problemas Técnicos</h3>
+                                <p class="text-text-secondary text-sm mb-3">Errores de conexión, navegador y dispositivos</p>
+                                <a href="javascript:void(0)" class="text-accent font-medium text-sm hover:text-accent-700 transition-quick">
+                                    Ver más →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Resources -->
+        <section class="py-12 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl font-bold text-primary mb-4">Centro de Aprendizaje</h2>
+                    <p class="text-text-secondary max-w-2xl mx-auto">
+                        Mejora tus conocimientos financieros con nuestros recursos educativos gratuitos
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Financial Literacy -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1651129523724-b8386b9aea41" 
+                             alt="Educación financiera y planificación económica" 
+                             class="h-48 w-full object-cover rounded-lg mb-4"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <h3 class="text-xl font-semibold text-primary mb-3">Educación Financiera</h3>
+                        <p class="text-text-secondary mb-4">
+                            Aprende los fundamentos de la gestión financiera personal y familiar
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-accent font-medium">15 artículos</span>
+                            <button class="btn-accent px-4 py-2 text-sm">Explorar</button>
+                        </div>
+                    </div>
+
+                    <!-- Security Best Practices -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1689439518549-7ff283abe884" 
+                             alt="Mejores prácticas de seguridad bancaria digital" 
+                             class="h-48 w-full object-cover rounded-lg mb-4"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <h3 class="text-xl font-semibold text-primary mb-3">Seguridad Digital</h3>
+                        <p class="text-text-secondary mb-4">
+                            Protege tu información y transacciones con nuestras guías de seguridad
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-accent font-medium">12 guías</span>
+                            <button class="btn-accent px-4 py-2 text-sm">Explorar</button>
+                        </div>
+                    </div>
+
+                    <!-- Video Tutorials -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <img src="https://images.unsplash.com/photo-1589651408038-daa372b1d9b6" 
+                             alt="Tutoriales en video para banca digital" 
+                             class="h-48 w-full object-cover rounded-lg mb-4"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <h3 class="text-xl font-semibold text-primary mb-3">Tutoriales en Video</h3>
+                        <p class="text-text-secondary mb-4">
+                            Aprende paso a paso con nuestros tutoriales visuales interactivos
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-accent font-medium">25 videos</span>
+                            <button class="btn-accent px-4 py-2 text-sm">Ver Videos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="py-12 bg-primary text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl font-bold mb-4">¿Necesitas Ayuda Personalizada?</h2>
+                    <p class="text-primary-200 max-w-2xl mx-auto">
+                        Nuestro equipo de especialistas está disponible para ayudarte con cualquier consulta
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Phone Support -->
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Teléfono</h3>
+                        <p class="text-primary-200 mb-2">900 123 456</p>
+                        <p class="text-sm text-primary-300">Disponible 24/7</p>
+                    </div>
+
+                    <!-- Email Support -->
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Email</h3>
+                        <p class="text-primary-200 mb-2">soporte@bancosecure.es</p>
+                        <p class="text-sm text-primary-300">Respuesta en 2 horas</p>
+                    </div>
+
+                    <!-- Branch Locations -->
+                    <div class="text-center">
+                        <div class="h-16 w-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Oficinas</h3>
+                        <p class="text-primary-200 mb-2">150+ ubicaciones</p>
+                        <p class="text-sm text-primary-300">Encuentra la más cercana</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-quick">
+                        Programar Cita Presencial
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Chat Widget -->
+        <div id="liveChatWidget" class="fixed bottom-6 right-6 z-50 hidden">
+            <div class="bg-white rounded-lg shadow-elevated border border-gray-200 w-80 max-h-96 flex flex-col">
+                <!-- Chat Header -->
+                <div class="bg-primary text-white p-4 rounded-t-lg flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="h-8 w-8 bg-accent rounded-full flex items-center justify-center">
+                            <span class="text-white text-sm font-semibold">AS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Ana Soporte</h4>
+                            <p class="text-xs text-primary-200">Especialista en Banca Digital</p>
+                        </div>
+                    </div>
+                    <button onclick="closeLiveChat()" class="text-primary-200 hover:text-white transition-quick">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Chat Messages -->
+                <div class="flex-1 p-4 space-y-3 max-h-64 overflow-y-auto">
+                    <div class="flex items-start space-x-2">
+                        <div class="h-6 w-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white text-xs">AS</span>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-2 max-w-xs">
+                            <p class="text-sm">¡Hola! Soy Ana, tu especialista en soporte. ¿En qué puedo ayudarte hoy?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input -->
+                <div class="p-4 border-t border-gray-200">
+                    <div class="flex space-x-2">
+                        <input type="text" 
+                               placeholder="Escribe tu mensaje..."
+                               class="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-800 transition-quick">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Chat Button -->
+        <button id="chatButton" 
+                onclick="openLiveChat()" 
+                class="fixed bottom-6 right-6 bg-accent text-white p-4 rounded-full shadow-elevated hover:bg-accent-700 transition-all duration-300 z-40">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+            <div class="absolute -top-1 -right-1 h-4 w-4 bg-error rounded-full flex items-center justify-center">
+                <span class="text-xs text-white">1</span>
+            </div>
+        </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-white" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 16h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="#1B365D"/>
+                            <circle cx="20" cy="12" r="3" fill="#1B365D"/>
+                        </svg>
+                        <span class="ml-3 text-xl font-bold">BancoSecure</span>
+                    </div>
+                    <p class="text-primary-200 mb-4 max-w-md">
+                        Tu socio financiero de confianza. Banca digital segura, innovadora y accesible para todos.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="account_management.html" class="hover:text-white transition-quick">Cuentas</a></li>
+                        <li><a href="card_center.html" class="hover:text-white transition-quick">Tarjetas</a></li>
+                        <li><a href="transfer_hub.html" class="hover:text-white transition-quick">Transferencias</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Préstamos</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Inversiones</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Soporte</h4>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="support_portal.html" class="hover:text-white transition-quick">Centro de Ayuda</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Chat en Vivo</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Contacto</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Seguridad</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 BancoSecure. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Términos</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Privacidad</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Live Chat Functions
+        function openLiveChat() {
+            document.getElementById('liveChatWidget').classList.remove('hidden');
+            document.getElementById('chatButton').classList.add('hidden');
+        }
+
+        function closeLiveChat() {
+            document.getElementById('liveChatWidget').classList.add('hidden');
+            document.getElementById('chatButton').classList.remove('hidden');
+        }
+
+        // Schedule Callback
+        function scheduleCallback() {
+            alert('Función de programar llamada - En desarrollo. Te contactaremos pronto.');
+        }
+
+        // Open Video Tutorials
+        function openVideoTutorials() {
+            alert('Abriendo centro de tutoriales en video...');
+        }
+
+        // Open FAQ
+        function openFAQ() {
+            alert('Abriendo sección de preguntas frecuentes...');
+        }
+
+        // Search functionality
+        document.getElementById('supportSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value;
+                if (query.trim()) {
+                    alert(`Buscando: "${query}". Función de búsqueda en desarrollo.`);
+                }
+            }
+        });
+
+        // Auto-show chat after 30 seconds (demo)
+        setTimeout(() => {
+            if (document.getElementById('liveChatWidget').classList.contains('hidden')) {
+                // Add a subtle animation to the chat button
+                const chatButton = document.getElementById('chatButton');
+                chatButton.classList.add('animate-pulse');
+                
+                setTimeout(() => {
+                    chatButton.classList.remove('animate-pulse');
+                }, 3000);
+            }
+        }, 30000);
+
+        // Simulate typing in chat
+        function simulateTyping() {
+            const chatMessages = document.querySelector('#liveChatWidget .space-y-3');
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'flex items-start space-x-2';
+            typingIndicator.innerHTML = `
+                <div class="h-6 w-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                    <span class="text-white text-xs">AS</span>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-2 max-w-xs">
+                    <div class="flex space-x-1">
+                        <div class="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div class="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="h-2 w-2 bg-gray-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                </div>
+            `;
+            
+            chatMessages.appendChild(typingIndicator);
+            
+            setTimeout(() => {
+                typingIndicator.remove();
+                const newMessage = document.createElement('div');
+                newMessage.className = 'flex items-start space-x-2';
+                newMessage.innerHTML = `
+                    <div class="h-6 w-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-white text-xs">AS</span>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-2 max-w-xs">
+                        <p class="text-sm">¿Hay algo específico en lo que pueda ayudarte con tu cuenta de BancoSecure?</p>
+                    </div>
+                `;
+                chatMessages.appendChild(newMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 2000);
+        }
+
+        // Trigger typing simulation when chat opens
+        let chatOpened = false;
+        function openLiveChat() {
+            document.getElementById('liveChatWidget').classList.remove('hidden');
+            document.getElementById('chatButton').classList.add('hidden');
+            
+            if (!chatOpened) {
+                chatOpened = true;
+                setTimeout(simulateTyping, 3000);
+            }
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

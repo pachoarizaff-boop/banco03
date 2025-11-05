@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Tarjetas - BancoSecure</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fbancosecur8154back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header Section -->
+    <header class="bg-white shadow-subtle border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="8" fill="currentColor"/>
+                        <path d="M12 16h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="white"/>
+                        <circle cx="20" cy="12" r="3" fill="white"/>
+                    </svg>
+                    <span class="ml-3 text-2xl font-bold text-primary">BancoSecure</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="account_management.html" class="text-text-secondary hover:text-primary transition-quick">Cuentas</a>
+                    <a href="card_center.html" class="text-primary font-semibold border-b-2 border-primary pb-1">Tarjetas</a>
+                    <a href="transfer_hub.html" class="text-text-secondary hover:text-primary transition-quick">Transferencias</a>
+                    <a href="support_portal.html" class="text-text-secondary hover:text-primary transition-quick">Soporte</a>
+                    <a href="secure_login_portal.html" class="text-text-secondary hover:text-primary transition-quick">Cerrar Sesión</a>
+                </nav>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-lg hover:bg-gray-100 transition-quick relative">
+                        <svg class="h-6 w-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-12"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 h-3 w-3 bg-accent rounded-full"></span>
+                    </button>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://img.rocket.new/generatedImages/rocket_gen_img_1beb9fc75-1762273370028.png" 
+                             alt="Foto de perfil del usuario María González" 
+                             class="h-8 w-8 rounded-full object-cover"
+                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                        <span class="text-sm font-medium text-text-primary">María González</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-quick">
+                    <svg class="h-6 w-6 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-br from-primary-50 to-secondary-50 py-12">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23E2E8F0" fill-opacity="0.3"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-4xl font-bold text-primary mb-4">Centro de Tarjetas</h1>
+                    <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                        Gestiona todas tus tarjetas con control total y seguridad avanzada
+                    </p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <button class="btn-primary flex items-center space-x-2" onclick="showActivateCard()">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        <span>Activar Tarjeta</span>
+                    </button>
+                    <button class="btn-secondary flex items-center space-x-2" onclick="showRequestCard()">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                        </svg>
+                        <span>Solicitar Tarjeta</span>
+                    </button>
+                    <button class="btn-accent flex items-center space-x-2" onclick="showRewards()">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                        <span>Ver Recompensas</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards Overview Section -->
+        <section class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold text-primary">Mis Tarjetas</h2>
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Buscar tarjetas..." 
+                                   class="input-field pl-10 pr-4 py-2 w-64">
+                            <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
+                        <button class="p-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-quick">
+                            <svg class="h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+                    <!-- Card 1 - Visa Débito -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="relative">
+                            <!-- Card Visual -->
+                            <div class="bg-gradient-to-br from-primary to-primary-800 rounded-lg p-6 text-white mb-4 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-12 -mb-12"></div>
+                                
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-8">
+                                        <div>
+                                            <p class="text-primary-200 text-sm">Tarjeta de Débito</p>
+                                            <p class="text-white font-semibold">BancoSecure Visa</p>
+                                        </div>
+                                        <img src="https://images.unsplash.com/photo-1609429019995-8c40f49535a5" 
+                                             alt="Logo de Visa en tarjeta de débito" 
+                                             class="h-8 w-auto"
+                                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    </div>
+                                    
+                                    <div class="font-mono text-lg tracking-wider mb-4">
+                                        •••• •••• •••• 4521
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-end">
+                                        <div>
+                                            <p class="text-primary-200 text-xs">TITULAR</p>
+                                            <p class="text-white text-sm font-medium">MARÍA GONZÁLEZ</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-primary-200 text-xs">VÁLIDA HASTA</p>
+                                            <p class="text-white text-sm font-medium">12/27</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Status -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="h-3 w-3 bg-accent rounded-full"></div>
+                                    <span class="text-sm font-medium text-accent">Activa</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <svg class="h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                    <span class="text-sm text-text-secondary">Contactless habilitado</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Controls -->
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <button class="flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-quick">
+                                    <svg class="h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"/>
+                                    </svg>
+                                    <span class="text-sm">Bloquear</span>
+                                </button>
+                                <button class="flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-quick">
+                                    <svg class="h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span class="text-sm">Configurar</span>
+                                </button>
+                            </div>
+
+                            <!-- Spending Limit -->
+                            <div class="bg-surface rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Límite Diario</span>
+                                    <span class="text-sm text-text-secondary">€1,500 / €2,000</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-accent h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 - Mastercard Crédito -->
+                    <div class="card hover:shadow-elevated transition-all duration-300">
+                        <div class="relative">
+                            <!-- Card Visual -->
+                            <div class="bg-gradient-to-br from-secondary to-secondary-800 rounded-lg p-6 text-white mb-4 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-5 rounded-full -ml-12 -mb-12"></div>
+                                
+                                <div class="relative z-10">
+                                    <div class="flex justify-between items-start mb-8">
+                                        <div>
+                                            <p class="text-secondary-200 text-sm">Tarjeta de Crédito</p>
+                                            <p class="text-white font-semibold">BancoSecure Gold</p>
+                                        </div>
+                                        <img src="https://images.unsplash.com/photo-1732385492755-53de91583b56" 
+                                             alt="Logo de Mastercard en tarjeta de crédito" 
+                                             class="h-8 w-auto"
+                                             onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                    </div>
+                                    
+                                    <div class="font-mono text-lg tracking-wider mb-4">
+                                        •••• •••• •••• 8934
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-end">
+                                        <div>
+                                            <p class="text-secondary-200 text-xs">TITULAR</p>
+                                            <p class="text-white text-sm font-medium">MARÍA GONZÁLEZ</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-secondary-200 text-xs">VÁLIDA HASTA</p>
+                                            <p class="text-white text-sm font-medium">08/28</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Status -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <div class="h-3 w-3 bg-accent rounded-full"></div>
+                                    <span class="text-sm font-medium text-accent">Activa</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <svg class="h-4 w-4 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                    </svg>
+                                    <span class="text-sm text-warning">Próximo vencimiento</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Controls -->
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <button class="flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-quick">
+                                    <svg class="h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728"/>
+                                    </svg>
+                                    <span class="text-sm">Bloquear</span>
+                                </button>
+                                <button class="flex items-center justify-center space-x-2 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-quick">
+                                    <svg class="h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                    <span class="text-sm">Configurar</span>
+                                </button>
+                            </div>
+
+                            <!-- Credit Limit -->
+                            <div class="bg-surface rounded-lg p-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium text-text-primary">Crédito Disponible</span>
+                                    <span class="text-sm text-text-secondary">€3,200 / €5,000</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-secondary h-2 rounded-full" style="width: 64%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add New Card -->
+                    <div class="card border-2 border-dashed border-gray-300 hover:border-primary transition-all duration-300 cursor-pointer" onclick="showRequestCard()">
+                        <div class="text-center py-12">
+                            <div class="h-16 w-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-primary mb-2">Solicitar Nueva Tarjeta</h3>
+                            <p class="text-text-secondary">Explora nuestras opciones de tarjetas y encuentra la perfecta para ti</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Digital Wallet Integration -->
+                <div class="card mb-12">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary mb-2">Carteras Digitales</h3>
+                            <p class="text-text-secondary">Gestiona tus tarjetas en plataformas de pago móvil</p>
+                        </div>
+                        <button class="btn-primary">Añadir a Cartera</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Apple Pay -->
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_167e4d650-1762375785495.png" 
+                                     alt="Logo de Apple Pay para pagos móviles" 
+                                     class="h-8 w-8"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="font-medium text-text-primary">Apple Pay</p>
+                                    <p class="text-sm text-text-secondary">2 tarjetas añadidas</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="h-3 w-3 bg-accent rounded-full"></div>
+                                <span class="text-sm text-accent">Activo</span>
+                            </div>
+                        </div>
+
+                        <!-- Google Pay -->
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_13f4a6e23-1762375787104.png" 
+                                     alt="Logo de Google Pay para pagos digitales" 
+                                     class="h-8 w-8"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="font-medium text-text-primary">Google Pay</p>
+                                    <p class="text-sm text-text-secondary">1 tarjeta añadida</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="h-3 w-3 bg-accent rounded-full"></div>
+                                <span class="text-sm text-accent">Activo</span>
+                            </div>
+                        </div>
+
+                        <!-- Samsung Pay -->
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <img src="https://img.rocket.new/generatedImages/rocket_gen_img_199f430fa-1762375785241.png" 
+                                     alt="Logo de Samsung Pay para pagos con dispositivos Samsung" 
+                                     class="h-8 w-8"
+                                     onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                                <div>
+                                    <p class="font-medium text-text-primary">Samsung Pay</p>
+                                    <p class="text-sm text-text-secondary">No configurado</p>
+                                </div>
+                            </div>
+                            <button class="text-sm text-primary hover:text-primary-800 transition-quick">Configurar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rewards Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                    <!-- Rewards Summary -->
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-primary">Programa de Recompensas</h3>
+                            <button class="text-sm text-primary hover:text-primary-800 transition-quick">Ver Todo</button>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-accent-50 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <div class="h-10 w-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                        <svg class="h-5 w-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Puntos Disponibles</p>
+                                        <p class="text-sm text-text-secondary">Válidos hasta 31/12/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold text-accent">12,450</p>
+                                    <p class="text-sm text-text-secondary">≈ €124.50</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                                    <p class="text-2xl font-bold text-primary">2.5%</p>
+                                    <p class="text-sm text-text-secondary">Cashback promedio</p>
+                                </div>
+                                <div class="text-center p-4 border border-gray-200 rounded-lg">
+                                    <p class="text-2xl font-bold text-primary">€89.30</p>
+                                    <p class="text-sm text-text-secondary">Este mes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="card">
+                        <h3 class="text-xl font-bold text-primary mb-6">Configuración de Seguridad</h3>
+
+                        <div class="space-y-4">
+                            <!-- Contactless -->
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <svg class="h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.5c3.5-2 7-5.5 7-9.5 0-2.5-2-4.5-4.5-4.5S10 6.5 10 9c0 4 3.5 7.5 7 9.5z"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Pagos Contactless</p>
+                                        <p class="text-sm text-text-secondary">Hasta €50 sin PIN</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+
+                            <!-- Online Payments -->
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <svg class="h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Compras Online</p>
+                                        <p class="text-sm text-text-secondary">Verificación 3D Secure</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+
+                            <!-- International -->
+                            <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                                <div class="flex items-center space-x-3">
+                                    <svg class="h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                                    </svg>
+                                    <div>
+                                        <p class="font-medium text-text-primary">Uso Internacional</p>
+                                        <p class="text-sm text-text-secondary">Fuera de la UE</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Transactions -->
+                <div class="card">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-primary">Transacciones Recientes</h3>
+                        <a href="account_management.html" class="text-sm text-primary hover:text-primary-800 transition-quick">Ver Todas</a>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Transaction 1 -->
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-4">
+                                <div class="h-10 w-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-5 w-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M8 11v6h8v-6M8 11H6a2 2 0 00-2 2v6a2 2 0 002 2h12a2 2 0 002-2v-6a2 2 0 00-2-2h-2"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Supermercado El Corte Inglés</p>
+                                    <p class="text-sm text-text-secondary">Hoy, 14:32 • •••• 4521</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold text-text-primary">-€45.67</p>
+                                <p class="text-sm text-accent">+23 puntos</p>
+                            </div>
+                        </div>
+
+                        <!-- Transaction 2 -->
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-4">
+                                <div class="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-text-primary">Netflix</p>
+                                    <p class="text-sm text-text-secondary">Ayer, 09:15 • •••• 8934</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-semibold text-text-primary">-€15.99</p>
+                                <p class="text-sm text-accent">+8 puntos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-white" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="8" fill="currentColor"/>
+                            <path d="M12 16h16v2H12v-2zm0 4h16v2H12v-2zm0 4h12v2H12v-2z" fill="#1B365D"/>
+                            <circle cx="20" cy="12" r="3" fill="#1B365D"/>
+                        </svg>
+                        <span class="ml-3 text-xl font-bold">BancoSecure</span>
+                    </div>
+                    <p class="text-primary-200 mb-4 max-w-md">
+                        Tu socio financiero de confianza. Banca digital segura, innovadora y accesible para todos.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-quick">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Servicios</h4>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="account_management.html" class="hover:text-white transition-quick">Cuentas</a></li>
+                        <li><a href="card_center.html" class="hover:text-white transition-quick">Tarjetas</a></li>
+                        <li><a href="transfer_hub.html" class="hover:text-white transition-quick">Transferencias</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Préstamos</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Inversiones</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Soporte</h4>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="support_portal.html" class="hover:text-white transition-quick">Centro de Ayuda</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Chat en Vivo</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Contacto</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Seguridad</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-quick">Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-primary-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 BancoSecure. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Términos</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Privacidad</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white text-sm transition-quick">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Activate Card Modal -->
+    <div id="activateCardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-primary">Activar Tarjeta</h3>
+                <button onclick="hideActivateCard()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Últimos 4 dígitos de la tarjeta</label>
+                    <input type="text" maxlength="4" class="input-field" placeholder="1234">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-text-primary mb-2">Código de activación</label>
+                    <input type="text" maxlength="6" class="input-field" placeholder="123456">
+                </div>
+                <div class="flex space-x-4 mt-6">
+                    <button type="button" onclick="hideActivateCard()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-text-secondary hover:bg-gray-50 transition-quick">
+                        Cancelar
+                    </button>
+                    <button type="submit" class="flex-1 btn-primary">
+                        Activar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Request Card Modal -->
+    <div id="requestCardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-primary">Solicitar Nueva Tarjeta</h3>
+                <button onclick="hideRequestCard()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Debit Card -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-quick cursor-pointer">
+                    <div class="bg-gradient-to-br from-primary to-primary-800 rounded-lg p-4 text-white mb-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Tarjeta de Débito</span>
+                            <span class="text-xs">VISA</span>
+                        </div>
+                        <div class="mt-4 font-mono">•••• •••• •••• ••••</div>
+                    </div>
+                    <h4 class="font-semibold text-text-primary mb-2">BancoSecure Débito</h4>
+                    <p class="text-sm text-text-secondary mb-4">Acceso inmediato a tus fondos con seguridad garantizada</p>
+                    <ul class="text-xs text-text-secondary space-y-1">
+                        <li>• Sin comisiones de mantenimiento</li>
+                        <li>• Contactless incluido</li>
+                        <li>• Retiradas gratuitas en cajeros</li>
+                    </ul>
+                </div>
+
+                <!-- Credit Card -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-quick cursor-pointer">
+                    <div class="bg-gradient-to-br from-secondary to-secondary-800 rounded-lg p-4 text-white mb-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Tarjeta de Crédito</span>
+                            <span class="text-xs">MASTERCARD</span>
+                        </div>
+                        <div class="mt-4 font-mono">•••• •••• •••• ••••</div>
+                    </div>
+                    <h4 class="font-semibold text-text-primary mb-2">BancoSecure Gold</h4>
+                    <p class="text-sm text-text-secondary mb-4">Flexibilidad financiera con programa de recompensas</p>
+                    <ul class="text-xs text-text-secondary space-y-1">
+                        <li>• Hasta €5,000 de límite</li>
+                        <li>• 2% cashback en compras</li>
+                        <li>• Seguro de viaje incluido</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-end space-x-4">
+                <button onclick="hideRequestCard()" class="px-6 py-2 border border-gray-300 rounded-lg text-text-secondary hover:bg-gray-50 transition-quick">
+                    Cancelar
+                </button>
+                <button class="btn-primary">
+                    Continuar Solicitud
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rewards Modal -->
+    <div id="rewardsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-xl font-bold text-primary">Programa de Recompensas</h3>
+                <button onclick="hideRewards()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Points Summary -->
+                <div class="bg-accent-50 rounded-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="text-lg font-semibold text-text-primary">Puntos Disponibles</h4>
+                            <p class="text-sm text-text-secondary">Válidos hasta 31/12/2025</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-3xl font-bold text-accent">12,450</p>
+                            <p class="text-sm text-text-secondary">≈ €124.50</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Redemption Options -->
+                <div>
+                    <h4 class="text-lg font-semibold text-text-primary mb-4">Opciones de Canje</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h5 class="font-medium text-text-primary">Descuento en Cuenta</h5>
+                            <p class="text-sm text-text-secondary">1,000 puntos = €10</p>
+                            <button class="mt-2 text-sm text-primary hover:text-primary-800">Canjear</button>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <h5 class="font-medium text-text-primary">Productos Amazon</h5>
+                            <p class="text-sm text-text-secondary">Desde 500 puntos</p>
+                            <button class="mt-2 text-sm text-primary hover:text-primary-800">Ver Catálogo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Modal Functions
+        function showActivateCard() {
+            document.getElementById('activateCardModal').classList.remove('hidden');
+            document.getElementById('activateCardModal').classList.add('flex');
+        }
+
+        function hideActivateCard() {
+            document.getElementById('activateCardModal').classList.add('hidden');
+            document.getElementById('activateCardModal').classList.remove('flex');
+        }
+
+        function showRequestCard() {
+            document.getElementById('requestCardModal').classList.remove('hidden');
+            document.getElementById('requestCardModal').classList.add('flex');
+        }
+
+        function hideRequestCard() {
+            document.getElementById('requestCardModal').classList.add('hidden');
+            document.getElementById('requestCardModal').classList.remove('flex');
+        }
+
+        function showRewards() {
+            document.getElementById('rewardsModal').classList.remove('hidden');
+            document.getElementById('rewardsModal').classList.add('flex');
+        }
+
+        function hideRewards() {
+            document.getElementById('rewardsModal').classList.add('hidden');
+            document.getElementById('rewardsModal').classList.remove('flex');
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            const modals = ['activateCardModal', 'requestCardModal', 'rewardsModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        });
+
+        // Card limit adjustment
+        function adjustLimit(cardId, newLimit) {
+            // Mock function for limit adjustment
+            console.log(`Adjusting limit for card ${cardId} to ${newLimit}`);
+        }
+
+        // Toggle card status
+        function toggleCardStatus(cardId) {
+            // Mock function for card status toggle
+            console.log(`Toggling status for card ${cardId}`);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Card Center loaded successfully');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

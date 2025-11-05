@@ -1,0 +1,48 @@
+// Función simple de registro
+async function registerUser(userData) {
+    try {
+        // 1. Registrar usuario en Auth
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+            email: userData.email,
+            password: userData.password
+        });
+
+        if (authError) throw authError;
+
+        // 2. Crear perfil en la tabla profiles
+        const { error: profileError } = await supabase
+            .from('profiles')
+            .insert([{
+                id: authData.user.id,
+                email: userData.email,
+                full_name: userData.full_name,
+                phone: userData.phone,
+                created_at: new Date().toISOString()
+            }]);
+
+        if (profileError) throw profileError;
+
+        return { success: true, user: authData.user };
+        
+    } catch (error) {
+        console.error('Error en registro:', error);
+        return { success: false, error: error.message };
+    }
+}
+
+// Ejemplo de uso con datos inventados
+const userData = {
+    email: "maria.garcia@email.com",
+    password: "password123",
+    full_name: "María García López",
+    phone: "+34 612 345 678"
+};
+
+// Llamar la función
+registerUser(userData).then(result => {
+    if (result.success) {
+        console.log("Usuario registrado:", result.user);
+    } else {
+        console.log("Error:", result.error);
+    }
+});

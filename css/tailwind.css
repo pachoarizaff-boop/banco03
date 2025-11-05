@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #1B365D; /* Deep trust blue */
+  --color-primary-50: #F0F4F8;
+  --color-primary-100: #D9E2EC;
+  --color-primary-200: #BCCCDC;
+  --color-primary-300: #9FB3C8;
+  --color-primary-400: #829AB1;
+  --color-primary-500: #627D98;
+  --color-primary-600: #486581;
+  --color-primary-700: #334E68;
+  --color-primary-800: #243B53;
+  --color-primary-900: #1B365D;
+
+  /* Secondary Colors */
+  --color-secondary: #2E5984; /* Professional warmth blue */
+  --color-secondary-50: #F1F5F9;
+  --color-secondary-100: #E2E8F0;
+  --color-secondary-200: #CBD5E0;
+  --color-secondary-300: #A0AEC0;
+  --color-secondary-400: #718096;
+  --color-secondary-500: #4A5568;
+  --color-secondary-600: #2E5984;
+  --color-secondary-700: #2D3748;
+  --color-secondary-800: #1A202C;
+  --color-secondary-900: #171923;
+
+  /* Accent Colors */
+  --color-accent: #00A86B; /* Success green */
+  --color-accent-50: #F0FDF4;
+  --color-accent-100: #DCFCE7;
+  --color-accent-200: #BBF7D0;
+  --color-accent-300: #86EFAC;
+  --color-accent-400: #4ADE80;
+  --color-accent-500: #22C55E;
+  --color-accent-600: #00A86B;
+  --color-accent-700: #15803D;
+  --color-accent-800: #166534;
+  --color-accent-900: #14532D;
+
+  /* Background Colors */
+  --color-background: #FAFBFC; /* Clean canvas */
+  --color-surface: #F5F7FA; /* Subtle card depth */
+
+  /* Text Colors */
+  --color-text-primary: #1A202C; /* High contrast */
+  --color-text-secondary: #4A5568; /* Supporting information */
+
+  /* Status Colors */
+  --color-success: #38A169; /* Transaction confirmations - green-600 */
+  --color-success-50: #F0FDF4; /* green-50 */
+  --color-success-100: #DCFCE7; /* green-100 */
+  --color-success-500: #22C55E; /* green-500 */
+
+  --color-warning: #D69E2E; /* Important notices - yellow-600 */
+  --color-warning-50: #FFFBEB; /* yellow-50 */
+  --color-warning-100: #FEF3C7; /* yellow-100 */
+  --color-warning-500: #F59E0B; /* yellow-500 */
+
+  --color-error: #E53E3E; /* Security alerts - red-600 */
+  --color-error-50: #FEF2F2; /* red-50 */
+  --color-error-100: #FEE2E2; /* red-100 */
+  --color-error-500: #EF4444; /* red-500 */
+
+  /* Border Colors */
+  --color-border: #E2E8F0; /* Clean borders - gray-200 */
+  --color-border-focus: #2E5984; /* Focus state borders */
+
+  /* Shadow Variables */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-primary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out hover:bg-accent-700 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md border border-gray-200 p-6 transition-all duration-300 ease-out;
+  }
+
+  .card-surface {
+    @apply bg-surface rounded-lg shadow-sm border border-gray-100 p-6;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:border-transparent transition-all duration-200 ease-out;
+  }
+
+  .text-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 300ms ease-out;
+  }
+
+  .transition-quick {
+    transition: all 200ms ease-out;
+  }
+
+  .transition-slow {
+    transition: all 400ms ease-out;
+  }
+
+  .shadow-natural {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-subtle {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-lg);
+  }
+}
